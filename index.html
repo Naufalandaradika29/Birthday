@@ -194,8 +194,7 @@ $('#secEnd').textContent = CONFIG.secretEnd;
 $('#sHint').textContent = CONFIG.surprise.hint;
 $('#sTitle').textContent = CONFIG.surprise.title;
 $('#sText').innerHTML = CONFIG.surprise.text.map(p => `<p>${p}</p>`).join('');
-if(CONFIG.surprise.photo){ const p=$('#sPhoto'); p.src='assets/photos/'+CONFIG.surprise.photo; p.hidden=false; p.onerror=()=>p.remove(); }
-$('#giftBtn').addEventListener('click', e => {
+if(CONFIG.surprise.photo){ const p=$('#sPhoto'); p.src=CONFIG.surprise.photo; p.hidden=false; p.onerror=()=>p.remove(); }$('#giftBtn').addEventListener('click', e => {
   e.currentTarget.classList.add('open');
   $('#reveal').hidden=false;
   showPhoto(0);
@@ -226,7 +225,7 @@ const slideshowButton = $('#toggleSlideshow');
 
 function showPhoto(index){
   slideIndex = (index + CONFIG.photos.length) % CONFIG.photos.length;
-  slidePhoto.src = `assets/photos/${CONFIG.photos[slideIndex]}`;
+  slidePhoto.src = CONFIG.photos[slideIndex];
   slidePhoto.alt = `Foto kenangan ${slideIndex + 1} dari ${CONFIG.photos.length}`;
   slideCounter.textContent = `${slideIndex + 1} / ${CONFIG.photos.length}`;
 }
