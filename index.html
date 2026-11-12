@@ -81,14 +81,9 @@ input.pin{font:inherit;font-size:1.8rem;letter-spacing:.5em;text-align:center;wi
       <img class="thumb" src="assets/photos/envelope.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'thumb',textContent:'✉️'}))">
       <span><b>birthday message</b><small>a little something from me</small><br><span class="tag">available</span></span>
     </button>
-    <button class="card" data-go="surprise">
+     <button class="card" data-go="pin">
       <img class="thumb" src="assets/photos/surprise.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'thumb',textContent:'🎁'}))">
-      <span><b>surprise</b><small>tap to open it</small><br><span class="tag">available</span></span>
-    </button>
-    <button class="card" data-go="pin">
-      <img class="thumb" src="assets/photos/secret.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'thumb',textContent:'🔐'}))">
-      <span><b>our secret</b><small>psst... only for you</small><br><span class="tag">🔒 locked</span></span>
-    </button>
+       <span><b>surprise</b><small>tap to open it</small><br><span class="tag">🔒 locked</span></span>
   </div>
   <p class="hand" style="font-size:1.4rem">made with love, just for you ♡</p>
 </main>
@@ -156,6 +151,7 @@ const CONFIG = {
   title: "Special gift for you",
   greeting: "Happy birthday yang ke 23, Nur Alika Pandoyo Putri! ❤️🎂<br>Semoga di usia yang baru ini semua hal baik selalu datang menghampirimu. Terima kasih sudah hadir dan menjadi bagian terindah dalam hidupku. Semoga kamu selalu bahagia, sehat, dan semua impianmu bisa terwujud. I’m so lucky to have you. I love you, always! ❤️",
   secretPin: "131103",                     // PIN untuk membuka halaman dan secret
+  surprisePin: "291030",
   pinHint: "maybe you know the special number? 🤭",
   surprise: {
     hint: "ada sesuatu buat kamu... ketuk kadonya ♡",
@@ -284,7 +280,7 @@ function hearts(){
 }
 $('#pinForm').addEventListener('submit', e => {
   e.preventDefault();
-  if($('#pinInput').value === CONFIG.secretPin){ show('secret'); hearts(); }
+ if($('#pinInput').value === CONFIG.surprisePin){ show('surprise'); }
   else {
     $('#err').textContent = 'hmm, belum bener nih. coba inget-inget lagi ya 🤭';
     const i = $('#pinInput'); i.classList.remove('shake'); void i.offsetWidth; i.classList.add('shake'); i.select();
